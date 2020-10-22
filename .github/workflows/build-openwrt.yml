@@ -18,9 +18,20 @@ on:
         description: 'SSH connection to Actions'
         required: false
         default: 'false'
- schedule:
-    - cron: 0 8 * * 5
+        
 
+  release:
+    types: published
+  push:
+    branches:
+      - master
+    paths:
+      - '.config'
+        
+  schedule:
+    - cron: 0 8 * * 5
+  watch:
+    types: started
 env:
   REPO_URL: https://github.com/openwrt/openwrt #https://github.com/coolsnowwolf/lede
   REPO_BRANCH: master
